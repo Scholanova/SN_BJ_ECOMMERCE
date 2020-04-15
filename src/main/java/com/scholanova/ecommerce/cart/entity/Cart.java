@@ -71,6 +71,15 @@ public class Cart {
         return totalPrice.setScale(2, RoundingMode.HALF_EVEN);
     }
 
+    @JsonProperty("totalQuantity")
+    public int getTotalQuantity() {
+        int totalQuantity = 0;
+        for (CartItem item: cartItems) {
+            totalQuantity = totalQuantity + item.getQuantity();
+        }
+        return totalQuantity;
+    }
+
     public Long getId() {return id;}
 
     public void setId(Long id) {
