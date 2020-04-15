@@ -46,7 +46,7 @@ public class Orders {
             throw new NotAllowedException("Order is CLOSED");
         }
         if ( this.cart != null && cart.getTotalQuantity()==0) {
-            throw new IllegalArgException("Order contain 0 quantity of item");
+            throw new IllegalArgException("Order contain 0 quantity of items");
         }
         this.issueDate = new Date(System.currentTimeMillis());
         this.status = OrderStatus.PENDING;
