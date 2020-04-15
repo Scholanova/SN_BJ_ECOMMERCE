@@ -6,6 +6,8 @@ import com.scholanova.ecommerce.order.exception.NotAllowedException;
 import com.scholanova.ecommerce.product.entity.Product;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -14,6 +16,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.InstanceOfAssertFactories.BIG_DECIMAL;
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
+
 class OrdersTest {
 
     @Test
@@ -21,7 +25,7 @@ class OrdersTest {
         Orders order = new Orders();
         order.checkout();
         Date now = new Date(System.currentTimeMillis());
-        assertThat(order.getIssueDate() == now);
+        assertThat(order.getIssueDate().equals(now) );
     }
 
     @Test
